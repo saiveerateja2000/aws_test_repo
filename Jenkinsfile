@@ -3,6 +3,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
+                sh 'groovy --version'
                 //groovyfile = load("cicd.groovy")
         }
         if ( groovyfile != null) {

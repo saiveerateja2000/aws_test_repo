@@ -1,7 +1,4 @@
 node {
-        tools{
-                jdk 'java'
-        }
         def groovyfile = null
         stage('Checkout') {
                 // Checkout source code from Git repository

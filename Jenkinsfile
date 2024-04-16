@@ -9,14 +9,13 @@ node {
         stage('Build') {
                 // Build the project (example: Maven)
                 sh 'echo "hello2" '
-                withGroovy {
-                groovyfile = load("atom.groovy")
-                }
+                groovyfile2 = load("cicd.groovy")
         }
         
         stage('Test') {
                 // Run tests (example: JUnit)
                 sh 'echo "hello3" '
+                groovyfile2.building()
         }
         
         stage('Deploy') {

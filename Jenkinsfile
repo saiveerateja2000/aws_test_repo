@@ -2,6 +2,7 @@ node {
         def groovyfile = null
         stage('Checkout') {
                 // Checkout source code from Git repository
+                sh 'which java'
                 sh 'echo "hello" '
                 withGroovy(tool:'4.0.9'){
                 sh 'groovy --version'

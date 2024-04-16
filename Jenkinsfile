@@ -2,15 +2,8 @@ node {
         def groovyfile = null
         stage('Checkout') {
                 // Checkout source code from Git repository
-                sh 'which java'
-                withJDK(tool:'java'){
-                sh 'java --version'
-                }
                 sh 'echo "hello" '
-                withGroovy(tool:'4.0.9'){
-                sh 'groovy --version'
-                }
-                //groovyfile = load("cicd.groovy")
+                groovyfile = load("cicd.groovy")
         }
         if ( groovyfile != null) {
         stage('Build') {

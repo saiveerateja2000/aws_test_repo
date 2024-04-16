@@ -13,6 +13,7 @@ pipeline {
             steps {
                 // Build the project (example: Maven)
                 sh 'echo "hello2" '
+                def groovyfile = load 'atom.groovy'
             }
         }
         

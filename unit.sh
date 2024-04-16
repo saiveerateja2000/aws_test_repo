@@ -6,6 +6,8 @@ OBJECT_FIRST_THREE=("${OBJECT[@]:0:3}");
 
 echo $OBJECTS;
 
+mkdir pyvenv
+
 for obj in "${OBJECT[@]}"; do
     echo ${obj};
     python3 -m venv pyvenv/$obj; \

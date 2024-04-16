@@ -8,7 +8,7 @@ node {
         stage('Build') {
                 // Build the project (example: Maven)
                 sh 'echo "hello2" '
-                groovyfile = load("atom.groovy')
+                groovyfile = load("atom.groovy")
         }
         
         stage('Test') {

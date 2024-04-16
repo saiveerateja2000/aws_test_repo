@@ -3,6 +3,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'which java'
+                sh 'env |grep -e JAVA_HOME'
                 sh 'echo "hello" '
                 withGroovy(tool:'4.0.9'){
                 sh 'groovy --version'

@@ -5,5 +5,6 @@ OBJECTS = alpha1 alpha2 alpha3 alpha4 alpha5 alpha6
 executable:
 	chmod +x unit2.sh
 	export OBJECTS="$(OBJECTS)" && \
-	echo "i am inside makefile"
 	./unit2.sh
+	echo "i am inside makefile"
+	

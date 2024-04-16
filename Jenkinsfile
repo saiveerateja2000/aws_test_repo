@@ -1,5 +1,4 @@
 node {
-    agent any
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '

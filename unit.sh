@@ -11,6 +11,7 @@ mkdir pyvenv
 for obj in "${OBJECT[@]}"; do
     echo ${obj};
     python3 -m venv pyvenv/$obj; \
+    chmod +w /var/lib/jenkins/workspace/pipeline1/pyvenv/$obj/pyvenv.cfg
     source pyvenv/${obj}/bin/activate; \
     echo $VIRTUAL_ENV
     if [[ " ${OBJECT_FIRST_THREE[@]} " =~ " ${obj} " ]]; then

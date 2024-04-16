@@ -1,10 +1,11 @@
 node {
+        def groovyfile = null
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
                 groovyfile = load("atom.groovy")
         }
-        
+        if ( groovyfile != null) {
         stage('Build') {
                 // Build the project (example: Maven)
                 sh 'echo "hello2" '
@@ -19,6 +20,7 @@ node {
         stage('Deploy') {
                 // Deploy the application (example: Docker)
                 sh 'echo "hello4" '
+        }
         }
     }
     

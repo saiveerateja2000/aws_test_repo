@@ -3,7 +3,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
-                withGroovy {
+                withGroovy(4.0.9){
                 sh 'groovy --version'
                 }
                 //groovyfile = load("cicd.groovy")

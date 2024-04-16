@@ -3,7 +3,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
-                groovyfile = load("atom_cicd.groovy")
+                groovyfile = load("cicd.groovy")
         }
         if ( groovyfile != null) {
         stage('Build') {

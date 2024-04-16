@@ -2,7 +2,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
-                groovyfile = load("atom.groovy')
+                groovyfile = load("atom.groovy")
         }
         
         stage('Build') {

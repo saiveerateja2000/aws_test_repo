@@ -7,6 +7,7 @@ OBJECT_FIRST_THREE=("${OBJECT[@]:0:3}");
 echo $OBJECTS;
 
 mkdir pyvenv
+chmod 777 pyvenv
 
 for obj in "${OBJECT[@]}"; do
     echo ${obj};

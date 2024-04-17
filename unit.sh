@@ -10,22 +10,18 @@ mkdir pyvenv
 
 for obj in "${OBJECT[@]}"; do
     echo ${obj};
-    python3 -m venv pyvenv/$obj; \
-    chmod +w /var/lib/jenkins/workspace/pipeline1/pyvenv/$obj/pyvenv.cfg
-    source pyvenv/${obj}/bin/activate; \
-    echo $VIRTUAL_ENV
+    #python3 -m venv pyvenv/$obj; \
+    #source pyvenv/${obj}/bin/activate; \
+    #echo $VIRTUAL_ENV
     if [[ " ${OBJECT_FIRST_THREE[@]} " =~ " ${obj} " ]]; then
     echo "$obj is in the first three elements of OBJECT"
     touch pyvenv/${obj}/${obj}_beta.txt
-    pip3 install pylint > /dev/null 2>&1
+    #pip3 install pylint > /dev/null 2>&1
     else
-    deactivate
-    echo $VIRTUAL_ENV
-    exit 1
+    #deactivate
     echo "hello"
+    exit 1
     fi
 done
-echo $VIRTUAL_ENV
 echo "end of loop"
-deactivate
-echo $VIRTUAL_ENV
+

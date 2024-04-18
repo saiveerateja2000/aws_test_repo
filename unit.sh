@@ -10,6 +10,7 @@ mkdir pyvenv
 
 for obj in "${OBJECT[@]}"; do
     echo ${obj};
+    echo "hello world";
     #python3 -m venv pyvenv/$obj; \
     #source pyvenv/${obj}/bin/activate; \
     #echo $VIRTUAL_ENV

@@ -15,7 +15,7 @@ for obj in "${OBJECT[@]}"; do
     #echo $VIRTUAL_ENV
     if [[ " ${OBJECT_FIRST_THREE[@]} " =~ " ${obj} " ]]; then
     echo "$obj is in the first three elements of OBJECT"
-    touch pyvenv/${obj}/${obj}_beta.txt
+    sudo touch pyvenv/${obj}/${obj}_beta.txt
     #pip3 install pylint > /dev/null 2>&1
     else
     #deactivate

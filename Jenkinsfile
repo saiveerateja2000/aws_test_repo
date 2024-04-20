@@ -3,10 +3,10 @@ node {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
                 //groovyfile = load 'atom.groovy'
-                sh 'make executable'
         }
         stage('Build') {
                 sh 'echo "hello2" '
+                groovyfile = load 'atom.groovy'
         }
         
         stage('Test') {

@@ -6,6 +6,7 @@ node {
         }
         stage('Build') {
                 sh 'echo "hello2" '
+                git clone 'https://github.com/aakashsehgal/FMU.git'
                 groovyfile = load 'atom.groovy'
         }
         

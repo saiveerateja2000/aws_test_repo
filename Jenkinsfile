@@ -3,7 +3,7 @@ node {
         stage('Checkout') {
                 // Checkout source code from Git repository
                 sh 'echo "hello" '
-                groovyfile = load 'cicd.groovy'
+                //groovyfile = load 'cicd.groovy'
         }
         stage('Build') {
                 // Build the project (example: Maven)
@@ -13,7 +13,7 @@ node {
         stage('Test') {
                 // Run tests (example: JUnit)
                 sh 'echo "hello3" '
-                groovyfile.building()
+                //groovyfile.building()
         }
         
         stage('Deploy') {

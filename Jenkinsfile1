@@ -11,7 +11,7 @@ node {
         try {
             // Execute unit.sh script and capture exit code
             
-            if (1 == 1) {
+            if (1 == 0) {
                 echo 'All unit tests passed!'
             } else {
                 error('Unit tests failed! Aborting pipeline.')

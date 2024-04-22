@@ -26,11 +26,14 @@ node {
 
         }
         }
+	if (currentBuild.result == 'SUCCESS'){
         
         stage('Deploy') {
                 // Deploy the application (example: Docker)
                 sh 'echo "hello4" '
-        }
+        }}
+	else{
+		sh "echo 'aborted' "}
     }
     
 

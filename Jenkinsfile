@@ -2,13 +2,12 @@ node {
         def groovyfile = null
         stage('Checkout') {
                 // Checkout source code from Git repository
-                sh 'echo "hello" '
-                //groovyfile = load 'atom.groovy'
+                sh 'echo "cloning the code" '
+                //    sh 'git clone "https://github.com/saiveerateja2000/aws_test_repo.git" '
+		git branch: 'main', url: 'https://github.com/saiveerateja2000/aws_test_repo.git'
         }
         stage('Build') {
-                sh 'echo "hello2" '
-            //    sh 'git clone "https://github.com/saiveerateja2000/aws_test_repo.git" '
-		git branch: 'main', url: 'https://github.com/saiveerateja2000/aws_test_repo.git'
+                sh 'echo "loading groovyfile" '
                 groovyfile = load 'atom.groovy'
         }
         if ( groovyfile != null){

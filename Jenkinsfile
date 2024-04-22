@@ -31,7 +31,7 @@ node {
         }
     }
 
-    if (currentBuild.result == 'SUCCESS') {
+    if (currentBuild.currentResult == 'SUCCESS') {
         stage('Success') {
             // Deploy the application (example: Docker)
             sh 'echo "hello4" '

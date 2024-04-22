@@ -22,23 +22,22 @@ node {
         sh 'echo "hello3" '
         try {
             groovyfile.building()
-            sh "echo 'Current build result2: ${currentBuild.currentResult}' "
-            sh "echo 'Current build result3: ${currentBuild.result}' "
+            echo 'Current build result2: ${currentBuild.currentResult}'
+            echo 'Current build result3: ${currentBuild.result}'
         } catch(e) {
-            //currentBuild.result = 'ABORTED'
-            sh 'echo "catch is executed" '
-            //error("An error occurred during testing. Aborting the stage.")
+            echo 'An error occurred during unit testing. Aborting pipeline.'
+            currentBuild.result = 'ABORTED'
         }
     }
 
     if (currentBuild.currentResult == 'SUCCESS') {
         stage('Success') {
             // Deploy the application (example: Docker)
-            sh 'echo "hello4" '
+            echo "hello4"
         }
     }else {
         stage('Failure') {
-            sh "echo 'aborted' "
+            echo 'aborted'
         }
     }
 }

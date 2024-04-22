@@ -23,8 +23,8 @@ node {
         try {
             groovyfile.building()
             sh "echo 'Current build result2: ${currentBuild.currentResult}' "
-            sh "echo 'Current build result3: ${currentBuild.result}' "
             currentBuild.result = 'SUCCESS'
+            sh "echo 'Current build result3: ${currentBuild.result}' "
         } catch(e) {
             echo 'An error occurred during unit testing. Aborting pipeline.'
             currentBuild.result = 'ABORTED'

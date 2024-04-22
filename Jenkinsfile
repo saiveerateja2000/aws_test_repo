@@ -14,6 +14,8 @@ node {
         stage('Test') {
                 // Run tests (example: JUnit)
                 sh 'echo "hello3" '
+                sh 'echo "Current build result: ${currentBuild.currentResult}" '
+                sh 'echo "Current build result: ${currentBuild.result}" '
                 groovyfile.building()
         }
         }

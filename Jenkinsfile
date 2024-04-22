@@ -22,15 +22,16 @@ node {
         sh 'echo "hello3" '
         try {
             groovyfile.building()
-            echo 'Current build result2: ${currentBuild.currentResult}'
-            echo 'Current build result3: ${currentBuild.result}'
+            sh "echo 'Current build result2: ${currentBuild.currentResult}' "
+            sh "echo 'Current build result3: ${currentBuild.result}' "
+            currentBuild.result = 'SUCCESS'
         } catch(e) {
             echo 'An error occurred during unit testing. Aborting pipeline.'
             currentBuild.result = 'ABORTED'
         }
     }
 
-    if (currentBuild.currentResult == 'SUCCESS') {
+    if (currentBuild.result == 'SUCCESS') {
         stage('Success') {
             // Deploy the application (example: Docker)
             echo "hello4"

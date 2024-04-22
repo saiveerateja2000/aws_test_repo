@@ -14,7 +14,7 @@ node {
         stage('Test') {
                 // Run tests (example: JUnit)
                 sh 'echo "hello3" '
-                //groovyfile.building()
+                groovyfile.building()
         }
         }
         

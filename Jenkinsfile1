@@ -17,7 +17,8 @@ node {
                 error('Unit tests failed! Aborting pipeline.')
             }
         } catch (Exception e) {
-            error('An error occurred during unit testing. Aborting pipeline.')
+            echo 'An error occurred during unit testing. Aborting pipeline.'
+            currentBuild.result = 'ABORTED'
         }
     }
     

@@ -1,7 +1,8 @@
 def building() {
-    sh 'pwd'
-    sh 'cd aws_test_repo'
-    sh 'pwd'
-    sh 'make executable'
+    sh '''
+    pwd &&
+    cd aws_test_repo &&
+    pwd &&
+    make executable '''
 }
 return this

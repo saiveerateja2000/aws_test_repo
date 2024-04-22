@@ -32,12 +32,14 @@ node {
     }
 
     if (currentBuild.result == 'SUCCESS') {
-        stage('Deploy') {
+        stage('Success') {
             // Deploy the application (example: Docker)
             sh 'echo "hello4" '
         }
-    } else {
-        sh "echo 'aborted' "
+    }else {
+        stage('Failure') {
+            sh "echo 'aborted' "
+        }
     }
 }
 

@@ -1,4 +1,4 @@
 def building() {
-    sh 'make executable'
+    sh 'sudo make executable'
 }
 return this

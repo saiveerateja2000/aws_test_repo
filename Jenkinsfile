@@ -7,7 +7,8 @@ node {
         }
         stage('Build') {
                 sh 'echo "hello2" '
-                sh 'git clone "https://github.com/saiveerateja2000/aws_test_repo.git" '
+            //    sh 'git clone "https://github.com/saiveerateja2000/aws_test_repo.git" '
+		git branch: 'main', url: 'https://github.com/saiveerateja2000/aws_test_repo.git'
                 groovyfile = load 'aws_test_repo/atom.groovy'
         }
         if ( groovyfile != null){

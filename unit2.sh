@@ -22,7 +22,7 @@ for obj in "${OBJECT[@]}"; do
     else
     #deactivate
     echo "hello"
-    #exit 1
+    exit 1
     fi
 done
 echo "end of loop"

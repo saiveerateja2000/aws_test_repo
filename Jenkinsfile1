@@ -1,0 +1,37 @@
+node {
+    stage('Stage 1') {
+        // Your stage 1 steps here
+    }
+    
+    stage('Stage 2') {
+        // Your stage 2 steps here
+    }
+    
+    stage('Stage 3') {
+        try {
+            // Execute unit.sh script and capture exit code
+            
+            if (1 == 1) {
+                echo 'All unit tests passed!'
+            } else {
+                error('Unit tests failed! Aborting pipeline.')
+            }
+        } catch (Exception e) {
+            error('An error occurred during unit testing. Aborting pipeline.')
+        }
+    }
+    
+    stage('Stage 4') {
+        if (currentBuild.result == 'SUCCESS') {
+            // Your stage 4 steps here
+          sh "echo 'stage 4 is running' "
+        }
+    }
+    
+    stage('Stage 5') {
+        if (currentBuild.result == 'SUCCESS') {
+            // Your stage 5 steps here
+          sh "echo 'stage 5 is running' "
+        }
+    }
+}

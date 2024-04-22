@@ -24,14 +24,14 @@ node {
     stage('Stage 4') {
         if (currentBuild.result == 'SUCCESS') {
             // Your stage 4 steps here
-          sh "echo 'stage 4 is running' "
+          sh 'echo "stage 4 is running" '
         }
     }
     
     stage('Stage 5') {
         if (currentBuild.result == 'SUCCESS') {
             // Your stage 5 steps here
-          sh "echo 'stage 5 is running' "
+          sh 'echo "stage 5 is running" '
         }
     }
 }

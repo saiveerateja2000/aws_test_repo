@@ -19,6 +19,7 @@ node {
                 sh "echo 'Current build result: ${currentBuild.currentResult}' "
                 try{
 		        groovyfile.building()
+			sh "echo 'Current build result2: ${currentBuild.currentResult}' "
 		}
 		catch(e){
 			currentBuild.result = 'ABORTED'

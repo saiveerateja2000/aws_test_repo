@@ -21,7 +21,7 @@ node {
 		        groovyfile.building()
 		}
 		catch(e){
-			currentBuild.currentResult = 'ABORTED'
+			currentBuild.result = 'ABORTED'
 		}
 
         }

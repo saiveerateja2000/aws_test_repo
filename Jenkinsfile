@@ -25,7 +25,7 @@ node {
             sh "echo 'Current build result2: ${currentBuild.currentResult}' "
             sh "echo 'Current build result3: ${currentBuild.result}' "
         } catch(e) {
-            currentBuild.result = 'ABORTED'
+            //currentBuild.result = 'ABORTED'
             sh 'echo "catch is executed" '
             error("An error occurred during testing. Aborting the stage.")
         }

@@ -3,7 +3,7 @@
 # Hardcoded values
 OBJECT=($OBJECTS);
 OBJECT_FIRST_THREE=("${OBJECT[@]:0:3}");
-
+exit 1
 echo $OBJECTS;
 
 mkdir pyvenv

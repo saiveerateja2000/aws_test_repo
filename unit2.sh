@@ -9,8 +9,6 @@ echo $OBJECTS;
 mkdir pyvenv
 chmod 777 pyvenv
 
-trap 'echo "Error occurred with exit code 1" ' ERR 1
-
 for obj in "${OBJECT[@]}"; do
     echo ${obj};
     python3 -m venv pyvenv/$obj; \

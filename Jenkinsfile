@@ -28,6 +28,7 @@ node {
         } catch(e) {
             echo 'An error occurred during unit testing. Aborting pipeline.'
             currentBuild.result = 'ABORTED'
+            throw e
         }
     }
 

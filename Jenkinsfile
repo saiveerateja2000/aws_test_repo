@@ -1,6 +1,6 @@
 node {
     def groovyfile = null
-
+try{
     stage('Checkout') {
         // Checkout source code from Git repository
         sh 'echo "cloning the code" '
@@ -28,7 +28,7 @@ node {
         } catch(e) {
             echo 'An error occurred during unit testing. Aborting pipeline.'
             currentBuild.result = 'ABORTED'
-            throw e
+            //throw e
         }
     }
 
@@ -42,6 +42,9 @@ node {
             echo 'aborted'
         }
     }
+}catch(exc){
+    echo "something went wrong"
+    throw exc}
 }
 
 

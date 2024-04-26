@@ -20,9 +20,9 @@ for obj in "${OBJECT[@]}"; do
     touch pyvenv/${obj}/${obj}_beta.txt
     pip3 install pylint > /dev/null 2>&1
     else
-    #deactivate
+    deactivate
     echo "hello"
-    #exit 1
+    exit 1
     fi
 done
 echo "end of loop"

@@ -20,7 +20,7 @@ try{
     stage('SonarQube Analysis') {
         // Run SonarQube analysis
         def scannerHome = tool 'sonarqube'; // Assuming SonarQube scanner is configured as a tool in Jenkins
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv(installationName: 'sonarqube') {
             sh "${scannerHome}/bin/sonar-scanner"
         }
     }

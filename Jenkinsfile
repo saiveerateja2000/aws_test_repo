@@ -17,6 +17,14 @@ try{
         }
     }
 
+    stage('SonarQube Analysis') {
+        // Run SonarQube analysis
+        def scannerHome = tool 'sonarqube'; // Assuming SonarQube scanner is configured as a tool in Jenkins
+        withSonarQubeEnv('SonarQube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+    }
+
     stage('Test') {
         // Run tests (example: JUnit)
         sh 'echo "hello3" '

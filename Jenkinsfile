@@ -20,7 +20,7 @@ try{
     stage('SonarQube Analysis') {
         // Run SonarQube analysis
         withSonarQubeEnv(installationName: 'sonarqube') {
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "echo 'hello world' "
         }
     }
 

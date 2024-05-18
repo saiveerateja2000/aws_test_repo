@@ -19,7 +19,7 @@ try{
 
     stage('SonarQube Analysis') {
         // Run SonarQube analysis
-        withSonarQubeEnv(installationName: 'sonarqube') {
+        withSonarQubeEnv('sonarqube') {
             sh "echo 'hello world' "
         }
     }

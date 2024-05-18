@@ -24,11 +24,10 @@ try{
         }
     }
     stage('SonarQube Analysis-2') {
-    def scannerHome = tool 'sonarqube';
-    withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
+         withSonarQubeEnv('sonarqube') {
+              sh "sonar-scanner"
+        }
     }
-  }
 
     stage('Test') {
         // Run tests (example: JUnit)

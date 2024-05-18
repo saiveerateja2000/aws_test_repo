@@ -5,7 +5,7 @@ try{
         // Checkout source code from Git repository
         sh 'echo "cloning the code" '
         git branch: 'main', url: 'https://github.com/saiveerateja2000/aws_test_repo.git'
-        sh 'java -version'
+        sh "java -version"
     }
 
     stage('Build') {

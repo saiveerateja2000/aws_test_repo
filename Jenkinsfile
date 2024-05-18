@@ -23,6 +23,12 @@ try{
             sh "echo 'hello world' "
         }
     }
+    stage('SonarQube Analysis-2') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv() {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
 
     stage('Test') {
         // Run tests (example: JUnit)

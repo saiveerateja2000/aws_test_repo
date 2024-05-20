@@ -26,7 +26,7 @@ try{
     }
     stage('SonarQube Analysis-2') {
          withSonarQubeEnv('sonarqube') {
-              sh "sonar-scanner"
+              sh "sonar-scanner -Dsonar.projectKey=sai-teja-test-1"
         }
     }
 

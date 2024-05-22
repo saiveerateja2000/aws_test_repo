@@ -29,6 +29,7 @@ try{
          withSonarQubeEnv('sonarqube') {
               //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
             def path = sh(script: 'pwd', returnStdout: true).trim()
+            echo "printing path"
             echo path
              
             //sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=sai-teja-test" -e   SONAR_TOKEN="sqp_b1277ca14e38f178671c2a7cd999ba61b2a20282" -v /var/lib/jenkins/workspace/sonar:/usr/src -v /var/lib/jenkins/workspace/sonar/coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'

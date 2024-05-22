@@ -26,7 +26,8 @@ try{
     }
     stage('SonarQube Analysis-2') {
          withSonarQubeEnv('sonarqube') {
-              sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
+              //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
+             sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=sai-teja-test" -e   SONAR_TOKEN="sqp_b1277ca14e38f178671c2a7cd999ba61b2a20282" -v aws_test_repo:/usr/src -v aws_test_repo/coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'
         }
     }
 

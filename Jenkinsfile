@@ -22,7 +22,7 @@ try{
         // Run SonarQube analysis
         withSonarQubeEnv('sonarqube') {
             sh "echo 'hello world' "
-            sh 'echo $pwd'
+            sh 'echo pwd'
         }
     }
     stage('SonarQube Analysis-2') {

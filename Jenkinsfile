@@ -26,7 +26,7 @@ try{
         }
     }
     stage('SonarQube Analysis-2') {
-         def scannerHome = tool 'SonarScanner 4.0';
+         def scannerHome = tool 'sonar-scanner-4.0';
          withSonarQubeEnv('sonarqube') {
               //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
              sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=sai-teja-test" 

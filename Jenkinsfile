@@ -26,7 +26,7 @@ try{
         }
     }
     stage('SonarQube Analysis-2') {
-         def scannerHome = tool 'sonar-scanner-4.0';
+         def scannerHome = tool 'sonar-scanner';
          withSonarQubeEnv('sonarqube') {
               //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
              sh 'export SONAR_SCANNER_OPTS="-Djava.io.tmpdir=/tmp/sonar" '

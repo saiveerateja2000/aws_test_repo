@@ -31,7 +31,7 @@ try{
               //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
              //sh 'export SONAR_SCANNER_OPTS="-Djava.io.tmpdir=/tmp/sonar" '
              //sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=saiveerateja-1" 
-             def scannerHome = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
+             def scannerHome = tool name: 'sonarscanner';
              sh 'export SONAR_SCANNER_OPTS="-Xmx512m"'
              sh 'set SONAR_SCANNER_OPTS=-Xmx512m'
              sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=saiveerateja-1 -Dsonar.sources=. -Dsonar.host.url=http://3.134.62.65:9000 -Dsonar.login=sqp_b9ff24ff10c8f71ac7a0c7fd1957c1945f631b02"

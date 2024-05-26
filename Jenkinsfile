@@ -18,6 +18,10 @@ try{
         }
     }
 
+    stage('artifacts'){
+        archiveArtifacts artifacts: '*.py'
+    }
+
     stage('SonarQube Analysis') {
         // Run SonarQube analysis
         withSonarQubeEnv('sonarqube') {

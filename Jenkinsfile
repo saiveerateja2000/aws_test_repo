@@ -19,7 +19,7 @@ try{
     }
 
     stage('artifacts'){
-        archiveArtifacts artifacts: '*.py'
+        archiveArtifacts artifacts: '*.sh'
     }
 
     stage('SonarQube Analysis') {

@@ -77,13 +77,14 @@ finally {
     def artifact1 = 'unit.sh'
     def artifact2 = 'unit2.sh'
     def webhookUrl = 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/IncomingWebhook/e3d54ab95f0a4dbe8193c45faafdc657/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
-    stage('Archive Report') {
-        def message = "Build completed. Here is the [zip file containing the artifacts]("www.google.com")."
-        //def message = 'www.google.com'
-            sh """
-                curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}
-            """
-        }
+
+stage('Archive Report') {
+    def message = "Build completed. Here is the [zip file containing the artifacts](https://www.google.com)."
+    sh """
+        curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}
+    """
+}
+
         
     stage('Build status'){
         def statusMessage = "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} completed. "

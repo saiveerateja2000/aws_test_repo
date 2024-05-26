@@ -78,7 +78,7 @@ finally {
         def statusMessage = "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} completed. "
             statusMessage += (currentBuild.result == 'FAILURE') ? "Secrets were detected." : "No secrets were detected."
             statusMessage += "\n[Download the Gitleaks report](www.google.com)"
-     office365ConnectorSend message: 'started ${env.JOB_NAME} ${env.BUILD_NUMBER}', status: 'we will find it soon', webhookUrl: 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/JenkinsCI/01f6fc8f4e9842db95fd6b91fbaa24b9/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
+     office365ConnectorSend message: statusMessage , status: 'we will find it soon', webhookUrl: 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/JenkinsCI/01f6fc8f4e9842db95fd6b91fbaa24b9/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
     }
 }
 }

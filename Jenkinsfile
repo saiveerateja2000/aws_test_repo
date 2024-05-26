@@ -71,7 +71,7 @@ try{
     }
 }catch(exc){
     echo "something went wrong"
-    throw exc}
+    throw exc
 }
 finally {
     stage('Build status'){

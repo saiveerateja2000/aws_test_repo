@@ -78,30 +78,9 @@ finally {
     def artifact2 = 'unit2.sh'
     def webhookUrl = 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/IncomingWebhook/e3d54ab95f0a4dbe8193c45faafdc657/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
     stage('Archive Report') {
-            def artifact1Content = readFile(file: artifact1).replace("\n", "\\n")
-            def artifact2Content = readFile(file: artifact2).replace("\n", "\\n")
-
-            // Prepare the JSON payload for Teams
-            def payload = """
-            {
-                "@type": "MessageCard",
-                "@context": "http://schema.org/extensions",
-                "summary": "Build Artifacts",
-                "sections": [{
-                    "activityTitle": "Build Artifacts for Job ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "text": "Build completed. Here are the contents of the artifacts.",
-                    "facts": [
-                        {"name": "${artifact1}", "value": "${artifact1Content}"},
-                        {"name": "${artifact2}", "value": "${artifact2Content}"}
-                    ],
-                    "markdown": true
-                }]
-            }
-            """
-
-            // Send the message to Teams
+        def message = 'www.google.com'
             sh """
-                curl -H 'Content-Type: application/json' -d '${payload}' ${webhookUrl}
+                curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}
             """
         }
         

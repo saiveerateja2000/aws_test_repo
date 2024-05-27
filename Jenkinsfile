@@ -19,7 +19,7 @@ try{
     }
 
     stage('artifacts'){
-        curl -u squ_a5760806df10c91b0c432a536ac0fd65cb978df8: -o response2.zip -X GET 'http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-1&branch=main&language=en_US&author=Administrator&token=squ_a5760806df10c91b0c432a536ac0fd65cb978df8&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate'
+        sh 'curl -u squ_a5760806df10c91b0c432a536ac0fd65cb978df8: -o response2.zip -X GET "http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-1&branch=main&language=en_US&author=Administrator&token=squ_a5760806df10c91b0c432a536ac0fd65cb978df8&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate" '
         archiveArtifacts artifacts: '*.sh,*.zip'
     }
 

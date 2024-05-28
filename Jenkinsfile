@@ -82,9 +82,15 @@ finally {
         //sh 'zip teja_reposrts.zip *.sh *.zip'
     }
 
-    stage('hello'){
-        def message = "Build completed.[ Click here for Artifacts tada :) ](http://3.134.62.65/files/${env.BUILD_NUMBER}/archive/)."
-        sh "curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}"
+    stage('Hello') {
+                    def message = "Build completed. [Click here for Artifacts](http://3.134.62.65/files/${env.BUILD_NUMBER}/archive/)."
+                    def webhookUrl = 'https://outlook.office.com/webhook/your_webhook_url_here' // Replace with your actual Teams webhook URL
+
+                    sh """
+                        curl -X POST -H 'Content-Type: application/json' -d '{
+                            "text": "${message}"
+                        }' ${webhookUrl}
+                    """
     }
    
     stage('Build status'){

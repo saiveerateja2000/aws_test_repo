@@ -75,7 +75,7 @@ finally {
     stage('Artifacts'){
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -o report.zip -X GET "http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-2&branch=main&language=en_US&author=Administrator&token=sqp_ed511176bed7b39c7d62d3441c358b29ec218d61&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate" '
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -X GET "http://3.134.62.65:9000/api/issues/search?componentKeys=saiveerateja-2&resolved=false&ps=500&format=json" -o issues.json'
-        archiveArtifacts artifacts: '*.sh,*.zip,*.json'
+        archiveArtifacts artifacts: '*.zip,*.json'
     }
 
     stage('Hello') {

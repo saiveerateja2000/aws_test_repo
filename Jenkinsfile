@@ -78,12 +78,15 @@ finally {
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -o report.zip -X GET "http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-2&branch=main&language=en_US&author=Administrator&token=sqp_ed511176bed7b39c7d62d3441c358b29ec218d61&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate" '
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -X GET "http://3.134.62.65:9000/api/issues/search?componentKeys=saiveerateja-2&resolved=false&ps=500&format=json" -o issues.json'
         archiveArtifacts artifacts: '*.sh,*.zip,*.json'
-        def message = "Build completed.[ Click here for Artifacts tada :) ](http://3.134.62.65/files/${env.BUILD_NUMBER}/archive/)."
-        sh "curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}"
+        
         //sh 'zip teja_reposrts.zip *.sh *.zip'
     }
 
-        
+    stage('hello'){
+        def message = "Build completed.[ Click here for Artifacts tada :) ](http://3.134.62.65/files/${env.BUILD_NUMBER}/archive/)."
+        sh "curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}"
+    }
+   
     stage('Build status'){
         def statusMessage = "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} completed. "
             statusMessage += (currentBuild.result == 'FAILURE') ? "Secrets were detected." : "No secrets were detected."

@@ -73,6 +73,7 @@ try{
             echo 'aborted'
         }
     }
+}
 }catch(exc){
     echo "something went wrong"
     throw exc

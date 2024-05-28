@@ -33,17 +33,19 @@ try{
     }
     stage('SonarQube Analysis-2') {
          //def scannerHome = tool 'sonar-scanner';
-         withSonarQubeEnv(installationName:'sonarqube') {
+         //withSonarQubeEnv(installationName:'sonarqube') {
               //sh "sonar-scanner -Dsonar.projectKey=sai-teja-test"
              //sh 'export SONAR_SCANNER_OPTS="-Djava.io.tmpdir=/tmp/sonar" '
              //sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=saiveerateja-1" 
-             def scannerHome = tool name: 'sonarscanner';
-             sh 'export SONAR_SCANNER_OPTS="-Xmx512m"'
-             sh 'set SONAR_SCANNER_OPTS=-Xmx512m'
-             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=saiveerateja-1 -Dsonar.sources=. -Dsonar.host.url=http://3.134.62.65:9000 -Dsonar.login=sqp_b9ff24ff10c8f71ac7a0c7fd1957c1945f631b02"
+             //def scannerHome = tool name: 'sonarscanner';
+             //sh 'export SONAR_SCANNER_OPTS="-Xmx512m"'
+             //sh 'set SONAR_SCANNER_OPTS=-Xmx512m'
+             //sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=saiveerateja-1 -Dsonar.sources=. -Dsonar.host.url=http://3.134.62.65:9000 -Dsonar.login=sqp_b9ff24ff10c8f71ac7a0c7fd1957c1945f631b02"
             //sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=sai-teja-test" -e   SONAR_TOKEN="sqp_b1277ca14e38f178671c2a7cd999ba61b2a20282" -v /var/lib/jenkins/workspace/sonar:/usr/src -v /var/lib/jenkins/workspace/sonar/coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'
             //sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=sai-teja-test" -e   SONAR_TOKEN="sqp_b1277ca14e38f178671c2a7cd999ba61b2a20282" -v /var/lib/jenkins/workspace/sonar:/usr/src -v /var/lib/jenkins/workspace/sonar/coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'
-         }
+            sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=saiveerateja-2" -e SONAR_TOKEN="sqp_ed511176bed7b39c7d62d3441c358b29ec218d61" -v .:/usr/src -v ./coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'
+
+        }
     }
 
     stage('Test') {
@@ -80,19 +82,25 @@ finally {
     def artifact2 = 'unit2.sh'
     def webhookUrl = 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/IncomingWebhook/e3d54ab95f0a4dbe8193c45faafdc657/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
 
-stage('Archive Report') {
-    def message = "Build completed.[ Click here for Artifacts tada :) ](https://www.google.com)."
-    sh """
-        curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}
-    """
-}
+    stage('Archive Report') {
+        def message = "Build completed.[ Click here for Artifacts tada :) ](https://www.google.com)."
+        sh """
+            curl -X POST -H 'Content-Type: application/json' -d '{"text": "${message}"}' ${webhookUrl}
+        """
+    }
+    stage('Artifacts'){
+        sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -o report.zip -X GET "http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-2&branch=main&language=en_US&author=Administrator&token=sqp_ed511176bed7b39c7d62d3441c358b29ec218d61&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate" '
+        sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -X GET "http://3.134.62.65:9000/api/issues/search?componentKeys=saiveerateja-2&resolved=false&ps=500&format=json" -o issues.json'
+        archiveArtifacts artifacts: '*.sh,*.zip,*.json'
+        //sh 'zip teja_reposrts.zip *.sh *.zip'
+    }
 
         
     stage('Build status'){
         def statusMessage = "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} completed. "
             statusMessage += (currentBuild.result == 'FAILURE') ? "Secrets were detected." : "No secrets were detected."
             statusMessage += "\n[Download the Gitleaks report](www.google.com)"
-     office365ConnectorSend message: statusMessage , status: currentBuild.result , webhookUrl: 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/JenkinsCI/01f6fc8f4e9842db95fd6b91fbaa24b9/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
+         office365ConnectorSend message: statusMessage , status: currentBuild.result , webhookUrl: 'https://tataelxsi.webhook.office.com/webhookb2/112576e0-aa18-4f8d-9756-2f307c5fcc6a@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/JenkinsCI/01f6fc8f4e9842db95fd6b91fbaa24b9/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
     }
 }
 }

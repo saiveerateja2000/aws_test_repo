@@ -46,7 +46,6 @@ try{
             sh 'docker run --rm -e SONAR_HOST_URL="http://3.134.62.65:9000" -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=saiveerateja-2" -e SONAR_TOKEN="sqp_ed511176bed7b39c7d62d3441c358b29ec218d61" -v .:/usr/src -v ./coverage.xml:/usr/src/coverge.xml sonarsource/sonar-scanner-cli'
 
         }
-    }
 
     stage('Test') {
         // Run tests (example: JUnit)
@@ -74,7 +73,7 @@ try{
         }
     }
 }
-}catch(exc){
+catch(exc){
     echo "something went wrong"
     throw exc
 }

@@ -83,13 +83,7 @@ finally {
                 //"text": "${message}"
             //}' ${webhookUrl}
             //"""
-        sh """
-                curl -X POST \
-                 -H 'Content-Type: application/json' \
-                 -d '{
-                     "text": \\"${message}\\"
-                     }' ${webhookUrl}
-            """
+        sh " curl -X POST -H 'Content-Type: application/json' -d '{"text": "all is good 2 "}' '${webhookUrl}' "
 
 
     }

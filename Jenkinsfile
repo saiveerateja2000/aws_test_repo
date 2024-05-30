@@ -94,7 +94,7 @@ finally {
     stage('Build status2') {
         def statusMessage = "Job ${env.JOB_NAME} ${env.BUILD_NUMBER} completed."
         def buildStatus = currentBuild.result ?: 'SUCCESS'  // Default to 'SUCCESS' if result is null
-        office365ConnectorSend message: statusMessage, status: buildStatus, webhookUrl: "${jenkinsWebhook}"
+        office365ConnectorSend message: statusMessage, status: buildStatus, webhookUrl: 'https://tataelxsi.webhook.office.com/webhookb2/cf5d8d3b-8722-434e-afa9-c6ddcf49290d@ad6a39dd-96b6-4368-82da-f2ec4d92e26a/JenkinsCI/d6db7667801c4375ad493ee58ad905be/fe8cb175-cc6b-4f79-b8bd-2a3d65c75354'
 }
 
 }

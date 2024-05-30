@@ -83,7 +83,8 @@ finally {
                 "text": "${message}"
             }' ${webhookUrl}
             """
-        sh ' curl -X POST -H "Content-Type: application/json" -d '{"text": "${message}"}' "${wenhookUrl}" '
+        sh ' curl -X POST -H "Content-Type: application/json" -d "{\"text\": \"${message}\"}" "${webhookUrl}" '
+
     }
    
     stage('Build status'){

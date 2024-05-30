@@ -76,7 +76,7 @@ finally {
     stage('Artifacts'){
         sh "curl -u squ_d5dd49a1d2943a80b8a12094229b8f96de728851: -o reports.zip -X GET 'http://3.134.62.65:9000/api/cnesreport/report?key=saiveerateja-2&branch=main&language=en_US&author=Administrator&token=squ_d5dd49a1d2943a80b8a12094229b8f96de728851&enableDocx=true&enableMd=true&enableXlsx=true&enableCsv=true&enableConf=true&generation=Generate' "
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -X GET "http://3.134.62.65:9000/api/issues/search?componentKeys=saiveerateja-2&resolved=false&ps=500&format=json" -o issues.json'
-        archiveArtifacts artifacts: '*.zip,*.json'
+        //archiveArtifacts artifacts: '*.zip,*.json'
         def message = "Build ${env.BUILD_NUMBER} is completed. [Click here for Artifacts](http://3.134.62.65/files/saitejaisgoodperson/${env.BUILD_NUMBER}/archive/)."
         //sh """
             //curl -X POST -H 'Content-Type: application/json' -d '{

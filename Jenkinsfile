@@ -78,11 +78,11 @@ finally {
         sh 'curl -u sqp_ed511176bed7b39c7d62d3441c358b29ec218d61: -X GET "http://3.134.62.65:9000/api/issues/search?componentKeys=saiveerateja-2&resolved=false&ps=500&format=json" -o issues.json'
         archiveArtifacts artifacts: '*.zip,*.json'
         def message = "Build ${env.BUILD_NUMBER} is completed. [Click here for Artifacts](http://3.134.62.65/files/saitejaisgoodperson/${env.BUILD_NUMBER}/archive/)."
-        sh """
-            curl -X POST -H 'Content-Type: application/json' -d '{
-                "text": "${message}"
-            }' ${webhookUrl}
-            """
+        //sh """
+            //curl -X POST -H 'Content-Type: application/json' -d '{
+                //"text": "${message}"
+            //}' ${webhookUrl}
+            //"""
         sh """
                 curl -X POST \
                  -H 'Content-Type: application/json' \

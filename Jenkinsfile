@@ -27,20 +27,15 @@ try{
     stage('Trigger1') {
             def currentHour = new Date().format('H', TimeZone.getTimeZone('UTC'))
             def currentDay = new Date().format('u', TimeZone.getTimeZone('UTC'))
-            if (currentHour == '15' && currentDay == '1') {
-                steps {
+                    sh 'echo ${currentHour}'
+                    sh 'echo ${currentDay}'
                     sh 'echo "timely trigger 1 is happening"'
-                }
-            }
+            
     }
     stage('Trigger2') {
             def currentHour = new Date().format('H', TimeZone.getTimeZone('UTC'))
             def currentDay = new Date().format('u', TimeZone.getTimeZone('UTC'))
-            if (currentHour == '15' && currentDay == '1') {
-                steps {
                     sh 'echo "timely trigger 2 is happening"'
-                }
-            }
     }
     stage('SonarQube Analysis-2') {
          //def scannerHome = tool 'sonar-scanner';

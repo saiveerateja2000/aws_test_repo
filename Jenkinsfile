@@ -27,8 +27,8 @@ try{
     stage('Trigger1') {
             def currentHour = new Date().format('H', TimeZone.getTimeZone('UTC'))
             def currentDay = new Date().format('u', TimeZone.getTimeZone('UTC'))
-                    sh 'echo ${currentHour}'
-                    sh 'echo ${currentDay}'
+                    sh 'echo "${currentHour}" '
+                    sh 'echo "${currentDay}" '
                     sh 'echo "timely trigger 1 is happening"'
             
     }

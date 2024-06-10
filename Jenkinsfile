@@ -24,6 +24,14 @@ try{
             sh 'pwd'
         }
     }
+     stage('Trigger') {
+            triggers {
+                cron('H/5 * * * *') // This triggers the stage at 00:00 (midnight) every Monday
+            }
+            steps {
+                sh 'echo "timely trigger is happening"'
+            }
+        }
     stage('SonarQube Analysis-2') {
          //def scannerHome = tool 'sonar-scanner';
          //withSonarQubeEnv(installationName:'sonarqube') {

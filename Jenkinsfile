@@ -30,7 +30,7 @@ try{
             def currentDay = new Date().format('u', TimeZone.getTimeZone('UTC'))
             def currentMonth = new Date().format('M', TimeZone.getTimeZone('UTC'))
             def currentMinute = new Date().format('m', TimeZone.getTimeZone('UTC'))
-            if (cause.contains('Started by user') || cause.contains('Started by timer')) {
+            if (cause.contains('Started by_user') || cause.contains('Started by_timer')) {
                 sh "echo 'Cause: ${cause}'"
                 sh "echo 'Current Hour: ${currentHour}'"
                 sh "echo 'Current Day: ${currentDay}'"

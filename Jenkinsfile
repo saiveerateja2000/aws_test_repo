@@ -31,7 +31,7 @@ try{
             def currentMonth = new Date().format('M', TimeZone.getTimeZone('UTC'))
             def currentMinute = new Date().format('m', TimeZone.getTimeZone('UTC'))
             
-            sh "echo 'Current Hour: ${cause}'"
+            sh "echo 'Cause: ${cause}'"
             sh "echo 'Current Hour: ${currentHour}'"
             sh "echo 'Current Day: ${currentDay}'"
             sh "echo 'Current Month: ${currentMonth}'"

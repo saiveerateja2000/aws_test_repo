@@ -30,14 +30,14 @@ try{
             def currentDay = new Date().format('u', TimeZone.getTimeZone('UTC'))
             def currentMonth = new Date().format('M', TimeZone.getTimeZone('UTC'))
             def currentMinute = new Date().format('m', TimeZone.getTimeZone('UTC'))
-            if (currentDay == '1') {
+            
             sh "echo 'Current Hour: ${cause}'"
             sh "echo 'Current Hour: ${currentHour}'"
             sh "echo 'Current Day: ${currentDay}'"
             sh "echo 'Current Month: ${currentMonth}'"
             sh "echo 'Current Minute: ${currentMinute}'"
             sh "echo 'Timely trigger 1 is happening'"
-            }
+            
             
     }
     stage('Trigger2') {

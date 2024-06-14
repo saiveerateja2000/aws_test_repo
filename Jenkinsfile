@@ -26,7 +26,7 @@ try{
     }
     stage('checkov') {
         // Run SonarQube analysis
-        docker run --rm --name checkov --tty   --volume .:/tf   --workdir /tf   bridgecrew/checkov   --directory /tf > checkov.json
+        docker run --rm --name checkov --tty --volume .:/tf --workdir /tf bridgecrew/checkov --directory /tf > checkov.json
     }
     stage('Trigger1') {
             def cause = currentBuild.getBuildCauses()[0].shortDescription
